@@ -1,14 +1,15 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var path = require('path');
 
 module.exports = {
     entry: [
-        // 'babel-polyfill',
+        //'babel-polyfill',
         './src/main.js'
     ],
     output: {
-        path: './dist',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     module: {
@@ -24,12 +25,17 @@ module.exports = {
                     loader: ['css-loader','postcss-loader', 'sass-loader'],
                     publicPath: '/dist'
                   })
+            },
+            {
+                test: /\.(jpg|png)$/,
+                loader: 'file-loader',
+                include: path.resolve(__dirname, 'src')
             }
         ]
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Proyecto nuevo',
+        title: 'Restaurant',
         template: 'src/index.html'
       }),
       new ExtractTextPlugin({
@@ -42,6 +48,6 @@ module.exports = {
         port: 3000,
         open: false,
         server: { baseDir: ['dist'] }
-    })
+      })
     ]
 };

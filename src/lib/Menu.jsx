@@ -9,7 +9,7 @@ class Menu extends React.Component {
 
     for (let i = 0; i < this.props.menuAmount; i++) {
       menu.push({
-        img: "img/salad187140.jpg",
+        img: require("../assets/salad187140.jpg"),
         title: "Salad title",
         desc: chance.sentence(),
         price: "€" + chance.natural({min: 1, max: 20}) + ".99"

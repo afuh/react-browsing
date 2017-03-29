@@ -4,7 +4,7 @@ import About from './About.jsx';
 import Menu from './Menu.jsx';
 import Contact from './Contact.jsx';
 
-const Content = (props) => {
+const Navbar = (props) => {
   switch (props.tab) {
     case 0:
       return(
@@ -19,13 +19,15 @@ const Content = (props) => {
           <About pplAmount={4} />
         </div>
       );
+      break;
     case 2:
       return(
         <div>
           <Contact />
         </div>
       );
+      break;
   }
 };
 
-export default Content;
+export default Navbar;
