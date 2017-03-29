@@ -15188,23 +15188,26 @@ var App = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'main' },
         _react2.default.createElement(
-          'button',
-          { onClick: this.tabA },
-          'Menu'
+          'div',
+          { className: 'buttons row' },
+          _react2.default.createElement(
+            'button',
+            { onClick: this.tabA },
+            'Menu'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.tabB },
+            'About us'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.tabC },
+            'Contact'
+          )
         ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.tabB },
-          'About us'
-        ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.tabC },
-          'Contact'
-        ),
-        _react2.default.createElement('div', { className: 'back' }),
         _react2.default.createElement(_Navbar2.default, { tab: this.state.tab })
       );
     }
@@ -15258,12 +15261,12 @@ var Contact = function Contact() {
       _react2.default.createElement(
         'span',
         null,
-        chance.phone()
+        '(714) 591-7407'
       ),
       _react2.default.createElement(
         'span',
         null,
-        chance.email({ domain: 'example.com' })
+        'reservations@example.com'
       )
     ),
     _react2.default.createElement(
@@ -15277,17 +15280,17 @@ var Contact = function Contact() {
       _react2.default.createElement(
         'span',
         null,
-        chance.address()
+        '112 Example road'
       ),
       _react2.default.createElement(
         'span',
         null,
-        chance.city()
+        '10997, Berlin'
       ),
       _react2.default.createElement(
         'span',
         null,
-        chance.country({ full: true })
+        'Germany'
       )
     )
   );
@@ -15351,17 +15354,21 @@ var Menu = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'menu' },
         this.state.menu.map(function (salad, i) {
           return _react2.default.createElement(
             'div',
-            { key: i, className: 'row' },
-            _react2.default.createElement('img', { src: salad.img, alt: 'identicon' }),
+            { key: i, className: 'row salad-container' },
             _react2.default.createElement(
               'div',
-              null,
+              { className: 'salad-image' },
+              _react2.default.createElement('img', { src: salad.img, alt: 'identicon' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'salad-text' },
               _react2.default.createElement(
-                'h5',
+                'h3',
                 null,
                 salad.title
               ),
@@ -15372,9 +15379,13 @@ var Menu = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              'span',
-              null,
-              salad.price
+              'div',
+              { className: 'salad-price' },
+              _react2.default.createElement(
+                'span',
+                null,
+                salad.price
+              )
             )
           );
         })
@@ -15421,21 +15432,21 @@ var Navbar = function Navbar(props) {
     case 0:
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'content' },
         _react2.default.createElement(_Menu2.default, { menuAmount: 8 })
       );
       break;
     case 1:
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'content' },
         _react2.default.createElement(_About2.default, { pplAmount: 4 })
       );
       break;
     case 2:
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'content' },
         _react2.default.createElement(_Contact2.default, null)
       );
       break;

@@ -19,16 +19,22 @@ class Menu extends React.Component {
   }
   render() {
     return (
-        <div>
+        <div className="menu">
           {this.state.menu.map((salad, i) => (
-          <div key={i} className="row">
-            <img src={salad.img} alt="identicon"/>
-            <div>
-              <h5>{salad.title}</h5>
+
+          <div key={i} className="row salad-container">
+            <div className="salad-image">
+              <img src={salad.img} alt="identicon"/>
+            </div>
+            <div className="salad-text">
+              <h3>{salad.title}</h3>
               <span>{salad.desc}</span>
             </div>
-            <span>{salad.price}</span>
+            <div className="salad-price">
+              <span>{salad.price}</span>
+            </div>
           </div>
+
           ))}
         </div>
       );

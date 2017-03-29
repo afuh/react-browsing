@@ -28,12 +28,12 @@ class App extends React.Component {
   }
   render() {
   	return (
-    	<div>
-			  <button onClick={this.tabA}>Menu</button>
-        <button onClick={this.tabB}>About us</button>
-        <button onClick={this.tabC}>Contact</button>
-
-        <div className="back"></div>
+    	<div className="main">
+				<div className="buttons row">
+				  <button onClick={this.tabA}>Menu</button>
+	        <button onClick={this.tabB}>About us</button>
+	        <button onClick={this.tabC}>Contact</button>
+				</div>
 
         <Navbar tab={this.state.tab} />
     	</div>

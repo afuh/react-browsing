@@ -8,21 +8,21 @@ const Navbar = (props) => {
   switch (props.tab) {
     case 0:
       return(
-        <div>
+        <div className="content">
           <Menu menuAmount={8}/>
         </div>
       );
       break;
     case 1:
       return(
-        <div>
+        <div className="content">
           <About pplAmount={4} />
         </div>
       );
       break;
     case 2:
       return(
-        <div>
+        <div className="content">
           <Contact />
         </div>
       );

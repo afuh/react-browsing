@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none; }
+
+body {
+  /* optional */
+  font-family: "Lucida Grande", sans-serif;
+  line-height: 1.15;
+  padding: 0;
+  margin: 0 auto; }
+
+button, input, optgroup, select, textarea {
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 100%;
+  font-line-height: 1.15;
+  font-margin: 0; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+  margin: 0; }
+
+ul {
+  padding-left: 0;
+  margin: 0; }
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row; }
+
+.main {
+  width: 70%;
+  margin: 50px auto; }
+
+.buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+button {
+  border: none;
+  height: 40px;
+  width: 120px;
+  background: #fff;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer; }
+  button:hover {
+    color: green; }
+  button:focus {
+    outline: none;
+    border-bottom: 1px solid lightgray; }
+
+.menu .salad-container {
+  padding: 6px; }
+  .menu .salad-container .salad-image {
+    -ms-flex-preferred-size: 20%;
+        flex-basis: 20%; }
+    .menu .salad-container .salad-image img {
+      display: block;
+      height: auto;
+      width: 100%; }
+  .menu .salad-container .salad-text {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%; }
+    .menu .salad-container .salad-text h3 {
+      margin: 0; }
+  .menu .salad-container .salad-price {
+    -ms-flex-preferred-size: 10%;
+        flex-basis: 10%;
+    font-size: 14px; }
