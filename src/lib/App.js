@@ -1,8 +1,8 @@
 import React from 'react';
 
-import About from './About.jsx';
-import Menu from './Menu.jsx';
-import Contact from './Contact.jsx';
+import About from './About';
+import Menu from './Menu';
+import Contact from './Contact';
 
 class App extends React.Component {
 	constructor(props) {
