@@ -19,7 +19,7 @@ module.exports = {
                 options: { presets: ['es2015', 'react'] }
             },
             {
-                test: /\.sass$/,
+                test: /\.(sass|scss|css)$/,
                 use: ExtractTextPlugin.extract({
                     fallbackLoader: 'style-loader',
                     loader: ['css-loader','postcss-loader', 'sass-loader'],
@@ -37,6 +37,7 @@ module.exports = {
       new HtmlWebpackPlugin({
         title: 'Restaurant',
         template: 'src/index.html'
+        // favicon: 'src/assets/favicon.ico'
       }),
       new ExtractTextPlugin({
          filename: 'main.css',
