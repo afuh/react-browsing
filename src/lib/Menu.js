@@ -37,8 +37,8 @@ class Menu extends React.Component {
 
           ))}
         </div>
-      );
-    }
+    );
+  }
 }
 
 export default Menu;
