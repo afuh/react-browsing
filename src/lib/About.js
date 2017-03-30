@@ -1,12 +1,11 @@
 import React from 'react';
 import Chance from 'chance';
 
-
 class About extends React.Component {
   constructor(props){
     super(props);
 
-    let ppl = [];
+    const ppl = [];
 
     for (let i = 0; i < this.props.pplAmount; i++) {
       ppl.push({
@@ -20,7 +19,7 @@ class About extends React.Component {
   render() {
     return (
         <div>
-          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </h3>
+          <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
           {this.state.ppl.map((person, i) => (
             <div key={i}>
               <h5>{person.name}</h5>

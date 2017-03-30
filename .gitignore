@@ -35,5 +35,6 @@ Temporary Items
 
 node_modules
 npm-debug.log
+.eslintrc
 
 # End of https://www.gitignore.io/api/osx,sass
