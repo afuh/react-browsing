@@ -36,7 +36,6 @@ module.exports = {
       new HtmlWebpackPlugin({
         title: 'Restaurant',
         template: 'src/index.html'
-        // favicon: 'src/assets/favicon.ico'
       }),
       new ExtractTextPlugin({
          filename: 'main.css',
