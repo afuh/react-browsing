@@ -18,15 +18,17 @@ class About extends React.Component {
   }
   render() {
     return (
-        <div>
+        <div className="about">
           <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h3>
-          {this.state.ppl.map((person, i) => (
-            <div key={i}>
-              <h5>{person.name}</h5>
-              <img src={person.avatar} alt="identicon"/>
-              <p>{person.about}</p>
-            </div>
-          ))}
+          <div className="about-cont row">
+            {this.state.ppl.map((person, i) => (
+              <div key={i} className="about-person">
+                <img src={person.avatar} alt="identicon"/>
+                <h5>{person.name}</h5>
+                <p>{person.about}</p>
+              </div>
+            ))}
+          </div>
         </div>
       );
     }
