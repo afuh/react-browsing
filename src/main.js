@@ -4,6 +4,6 @@ import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './lib/App';
+import App from './js/App';
 
 ReactDOM.render(<App /> , document.getElementById('app'));
