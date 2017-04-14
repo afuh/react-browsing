@@ -10,7 +10,7 @@ class Menu extends React.Component {
     for (let i = 0; i < this.props.menuAmount; i++) {
       menu.push({
         img: `https://source.unsplash.com/collection/397770?sig=${i}`,
-        title: "Coffe specialtie name",
+        title: "Coffee specialty name",
         desc: chance.sentence({words: 9}),
         price: "€" + chance.natural({min: 1, max: 20}) + ".99"
       });
