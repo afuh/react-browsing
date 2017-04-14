@@ -10,7 +10,7 @@ class About extends React.Component {
     for (let i = 0; i < this.props.pplAmount; i++) {
       ppl.push({
         name: chance.name({middle: true}),
-        avatar: chance.avatar({protocol: 'https'}) + "?s=32&d=identicon&r=PG" + ".jpg",
+        avatar: `https://source.unsplash.com/collection/302501?sig=${i}`,
         about: chance.paragraph({sentences: 2})
       });
     }
@@ -23,7 +23,7 @@ class About extends React.Component {
           <div className="about-cont row">
             {this.state.ppl.map((person, i) => (
               <div key={i} className="about-person">
-                <img src={person.avatar} alt="identicon"/>
+                <img src={person.avatar} alt="about-us"/>
                 <h5>{person.name}</h5>
                 <p>{person.about}</p>
               </div>
