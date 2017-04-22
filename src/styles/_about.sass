@@ -1,10 +1,6 @@
 /* About Us ======================= */
 
 .about
-  img
-    display: block
-    width: 100%
-    max-height: auto
   h3
     font-weight: 300
 .about-cont
@@ -13,8 +9,13 @@
 .about-person
   flex-basis: 25%
   padding: 10px
-  &:not(:last-child)
-    border-right: 1px solid lightgray
   p
     margin-bottom: 0
     font-size: 13px
+  h5
+    color: #009688
+  .image
+    display: flex
+    align-items: center
+    max-height: 140px
+    overflow: hidden

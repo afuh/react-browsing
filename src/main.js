@@ -1,5 +1,5 @@
-const css = require('./main.sass');
 import 'normalize.css';
+import css from "./main.sass";
 
 import React from 'react';
 import ReactDOM from 'react-dom';

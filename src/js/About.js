@@ -23,7 +23,9 @@ class About extends React.Component {
           <div className="about-cont row">
             {this.state.ppl.map((person, i) => (
               <div key={i} className="about-person">
-                <img src={person.avatar} alt="about-us"/>
+                <div className="image">
+                  <img src={person.avatar} alt="about-us"/>
+                </div>
                 <h5>{person.name}</h5>
                 <p>{person.about}</p>
               </div>

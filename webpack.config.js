@@ -1,52 +1,67 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
+const path = require("path");
+
+const isProd = process.env.NODE_ENV === "production";
+const cssDev = ['style-loader', 'css-loader','postcss-loader', 'sass-loader'];
+const cssProd = ExtractTextPlugin.extract({
+                fallbackLoader: 'style-loader',
+                loader: ['css-loader','postcss-loader', 'sass-loader'],
+                publicPath: '/dist'
+              });
+
 
 module.exports = {
-    entry: [
-        './src/main.js'
-    ],
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/,
-                options: { presets: ['es2015', 'react'] }
-            },
-            {
-                test: /\.(sass|scss|css)$/,
-                use: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: ['css-loader','postcss-loader', 'sass-loader'],
-                    publicPath: '/dist'
-                  })
-            },
-            {
-                test: /\.(jpg|png)$/,
-                loader: 'file-loader',
-                include: path.resolve(__dirname, 'src')
-            }
-        ]
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Restaurant',
-        template: 'src/index.html'
+  entry: './src/main.js',
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+          test: /\.jsx?$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          options: { presets: ['es2015', 'react'] }
+      },
+      {
+        test: /\.(s+(a|c)ss|css)$/,
+        use: isProd ? cssProd : cssDev
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: 'file-loader?name=images/[hash:6].[ext]'
+        // use: 'file-loader?name=[hash:6].[ext]&publicPath=dist/&outputPath=images/' //html bien
+      }
+    ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    stats: "errors-only",
+    open: false,
+    overlay: true,
+    port: 3000,
+    hot: true
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+        title: 'Nuevo Proyecto',
+        minify: {
+            collapseWhitespace: true
+        },
+        hash: true,
+        template: './src/index.html',
+        // filename: isProd ? './../index.html' : 'index.html'
       }),
       new ExtractTextPlugin({
          filename: 'main.css',
-         disable: false,
+         disable: !isProd,
          allChunks: true
        }),
-      new BrowserSyncPlugin({
-        host: 'localhost',
-        port: 3000,
-        open: false,
-        server: { baseDir: ['dist'] }
-      })
-    ]
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin()
+  ]
 };

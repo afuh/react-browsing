@@ -1,21 +1,28 @@
 /* Media ======================= */
 
+@media screen and (max-width: 1280px)
+  .about-cont
+    flex-wrap: wrap
+
+  .about-person
+    flex-basis: 30%
+
 @media screen and (max-width: 1040px)
   .main
     width: 80%
+
   .about-cont
     flex-wrap: wrap
-  .about-person
-    border:
-      right: none !important
-      bottom: 1px solid lightgray
-    flex-basis: 45%
-    padding: 10px 0
 
+  .about-person
+    flex-basis: 50%
+    .image
+      max-height: 240px
 
 @media screen and (max-width: 992px)
   .main
     width: 90%
+
 
 @media screen and (max-width: 768px)
   .main
@@ -24,3 +31,7 @@
 
   .about-cont
     display: block
+
+  .about-person
+    .image
+      max-height: none
