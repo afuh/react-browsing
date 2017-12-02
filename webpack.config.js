@@ -1,13 +1,21 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
 const webpack = require('webpack');
 const path = require("path");
 
+const postcss = {
+  loader: 'postcss-loader',
+  options: {
+    plugins() { return [autoprefixer({ browsers: 'last 3 versions' })]; }
+  }
+};
+
 const isProd = process.env.NODE_ENV === "production";
-const cssDev = ['style-loader', 'css-loader','postcss-loader', 'sass-loader'];
+const cssDev = ['style-loader', 'css-loader',postcss, 'sass-loader'];
 const cssProd = ExtractTextPlugin.extract({
                 fallbackLoader: 'style-loader',
-                loader: ['css-loader','postcss-loader', 'sass-loader'],
+                loader: ['css-loader', postcss, 'sass-loader'],
                 publicPath: '/dist'
               });
 
@@ -24,7 +32,7 @@ module.exports = {
           test: /\.jsx?$/,
           loader: 'babel-loader',
           exclude: /node_modules/,
-          options: { presets: ['es2015', 'react'] }
+          options: { presets: ['env', 'react'] }
       },
       {
         test: /\.(s+(a|c)ss|css)$/,
